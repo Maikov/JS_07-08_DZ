@@ -18,21 +18,24 @@ $(function () {
             $('.tips').remove();
     });
 
-    $(inputs).keydown(
-        function (event) {
-            if (event.which == 9) {
-            $('.tips').remove();
-            tips = $(this).attr('title');
-            $(this).removeAttr('title');
-            $('<p class=' + 'tips'+ '>' + tips + '</p>').insertAfter(this);
-        }
-        },
 
-        function () {
-     
-            $(this).attr('title', tips);
-            $('.tips').remove();
-    });
+     $(inputs).keyup(
+     function (event) {
+         if (event.which == 9) {
+         $('.tips').remove();
+         tips = $(this).attr('title');
+         $(this).removeAttr('title');
+         $('<p class=' + 'tips'+ '>' + tips + '</p>').insertAfter(this);
+         
+        }
+     }),
+
+     function () {
+
+       $(this).attr('title', tips);
+       $('.tips').remove();
+          
+ 	 }
 
     $('.help').on('click', function () {
      
